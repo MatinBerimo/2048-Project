@@ -137,18 +137,18 @@ bool moveleft()
     bool changed = false;
     for (int i = 0; i < 4; i++)
     {
-        int m = 0;
+        int select = 0;
         for (int j = 0; j < 4; j++)
         {
             if (matrix[i][j] != 0)
             {
-                if (j != m)
+                if (j != select)
                 {
-                    matrix[i][m] = matrix[i][j];
+                    matrix[i][select] = matrix[i][j];
                     matrix[i][j] = 0;
                     changed = true;
                 }
-                m++;
+                select++;
             }
         }
         for (int j = 0; j < 3; j++)
@@ -175,18 +175,18 @@ bool moveright()
     bool changed = false;
     for (int i = 0; i < 4; i++)
     {
-        int x = 3;
+        int select = 3;
         for (int j = 3; j >= 0; j--)
         {
             if (matrix[i][j] != 0)
            {
-                if (j != x)
+                if (j != select)
                 {
-                    matrix[i][x] = matrix[i][j];
+                    matrix[i][select] = matrix[i][j];
                     matrix[i][j] = 0;
                     changed = true;
                 }
-                x--;
+                select--;
             }
         }
         for (int j = 3; j > 0; j--)
@@ -213,18 +213,18 @@ bool moveup()
     bool changed = false;
     for (int j = 0; j < 4; j++)
     {
-        int m = 0;
+        int select = 0;
         for (int i = 0; i < 4; i++)
         {
             if (matrix[i][j] != 0)
             {
-                if (i != m)
+                if (i != select)
                 {
-                    matrix[m][j] = matrix[i][j];
+                    matrix[select][j] = matrix[i][j];
                     matrix[i][j] = 0;
                     changed = true;
                 }
-                m++;
+                select++;
             }
         }
         for (int i = 0; i < 3; i++)
@@ -251,18 +251,18 @@ bool movedown()
     bool changed = false;
     for (int j = 0; j < 4; j++)
     {
-        int x = 3;
+        int select = 3;
         for (int i = 3; i >= 0; i--)
         {
             if (matrix[i][j] != 0)
             {
-                if (i != x)
+                if (i != select)
                 {
-                    matrix[x][j] = matrix[i][j];
+                    matrix[select][j] = matrix[i][j];
                     matrix[i][j] = 0;
                     changed = true;
                 }
-                x--;
+                select--;
             }
         }
         for (int i = 3; i > 0; i--)
@@ -342,6 +342,7 @@ int showMenu()
 
 int main()
 {
+    SetConsoleOutputCP(65001);
     srand(time(NULL));
 
     while (true)
@@ -361,7 +362,15 @@ int main()
             }
             break;
         case 3:
-            cout << "Goodbye!";
+            system("cls");
+            cout << "#####                                                             ### ### ### \n";
+            cout << "#     # #        ##     ##     ##     ##     ##   #    # ######    ### ### ### \n";
+            cout << "#       #       #  #   #  #   #  #   #  #   #  #  #    # #         ### ### ### \n";
+            cout << " #####  #      #    # #    # #    # #    # #    # #    # #####      #   #   # \n";
+            cout << "      # #      ###### ###### ###### ###### ###### #    # # \n";
+            cout << "#     # #      #    # #    # #    # #    # #    #  #  #  #         ### ### ### \n";
+            cout << " #####  ###### #    # #    # #    # #    # #    #   ##   ######    ### ### ### \n";
+            Sleep(10000);
             return 0;
         default:
             cout << "Invalid choice!\n";
@@ -386,7 +395,7 @@ int main()
                 break;
             }
             printboard();
-            cout << "Controls: Arrow Keys up down left right\nPress R to Restart, S to Save, E to Exit\n";
+            cout << "Controls: Arrow Keys (← ↑ → ↓)\nPress R to Restart, S to Save, E to Exit\n";
             cout << "Score: " << score << endl;
 
             move = _getch();
@@ -429,33 +438,27 @@ int main()
                         system("cls");
                         saveGame();
                         restart();
-                        cout << "Slaaaaave!\n";
-                        cout << "       _.-._\n";
-                        cout << "      | | | |_\n";
-                        cout << "      | | | | |\n";
-                        cout << "      | | | | |\n";
-                        cout << "      |  - |_/\n";
-                        cout << "    '-._  |\n";
-                        cout << "      | | |\n";
-                        cout << "      | | |\n";
-                        cout << "      '-' '\n";
-                        Sleep(5000);
+                        cout << "#####                                                             ### ### ### \n";
+                        cout << "#     # #        ##     ##     ##     ##     ##   #    # ######    ### ### ### \n";
+                        cout << "#       #       #  #   #  #   #  #   #  #   #  #  #    # #         ### ### ### \n";
+                        cout << " #####  #      #    # #    # #    # #    # #    # #    # #####      #   #   # \n";
+                        cout << "      # #      ###### ###### ###### ###### ###### #    # # \n";
+                        cout << "#     # #      #    # #    # #    # #    # #    #  #  #  #         ### ### ### \n";
+                        cout << " #####  ###### #    # #    # #    # #    # #    #   ##   ######    ### ### ### \n";
+                        Sleep(10000);
                         return 0;
                         break;
                     case '2':
                         system("cls");
                         restart();
-                        cout << "Slavaaaae!\n";
-                        cout << "       _.-._\n";
-                        cout << "      | | | |_\n";
-                        cout << "      | | | | |\n";
-                        cout << "      | | | | |\n";
-                        cout << "      |  - |_/\n";
-                        cout << "    '-._  |\n";
-                        cout << "      | | |\n";
-                        cout << "      | | |\n";
-                        cout << "      '-' '\n";
-                        Sleep(5000);
+                        cout << "#####                                                             ### ### ### \n";
+                        cout << "#     # #        ##     ##     ##     ##     ##   #    # ######    ### ### ### \n";
+                        cout << "#       #       #  #   #  #   #  #   #  #   #  #  #    # #         ### ### ### \n";
+                        cout << " #####  #      #    # #    # #    # #    # #    # #    # #####      #   #   # \n";
+                        cout << "      # #      ###### ###### ###### ###### ###### #    # # \n";
+                        cout << "#     # #      #    # #    # #    # #    # #    #  #  #  #         ### ### ### \n";
+                        cout << " #####  ###### #    # #    # #    # #    # #    #   ##   ######    ### ### ### \n";
+                        Sleep(10000);
                         return 0;
                         break;
                     
